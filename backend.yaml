@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: quiz-backend
-          image: ervisa/backend-new:7
+          image: ${dockerhubname}/${Service}:${BUILD_ID}
           imagePullPolicy: Always
           ports:
             - name: http
