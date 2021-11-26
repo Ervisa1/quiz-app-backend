@@ -1,20 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: quiz-backend
 spec:
   selector:
     matchLabels:
       app: quiz-backend
-      tier: backend
-      track: stable
   replicas: 1
   template:
     metadata:
       labels:
         app: quiz-backend
-        tier: backend
-        track: stable
     spec:
       containers:
         - name: quiz-backend
@@ -27,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: quiz-backend
 spec:
   ports:
     - port: 8080
@@ -35,8 +31,6 @@ spec:
       targetPort: 8080
   selector:
     app: quiz-backend
-    tier: backend
-    track: stable
   type: ClusterIP
 status:
   loadBalancer: {}
